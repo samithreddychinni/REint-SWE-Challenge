@@ -1,0 +1,25 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.venv/
+venv/
+env/
+
+# Local data cache
+backend/data/*.json
+
+# Frontend dependencies and build output
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# Environment and editor files
+.env
+.env.local
+.DS_Store
+*.log
+
+# Assignment prompt document
+*.docx
