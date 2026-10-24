@@ -23,3 +23,6 @@ frontend/.vite/
 
 # Assignment prompt document
 *.docx
+*.mp4
+.vercel/
+.vercel

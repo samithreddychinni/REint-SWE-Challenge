@@ -34,14 +34,22 @@ def _load_or_fetch(cache_file: Path, url: str, params: dict) -> List[dict]:
     if key in _MEMORY_CACHE:
         return _MEMORY_CACHE[key]
 
-    DATA_DIR.mkdir(parents=True, exist_ok=True)
-    if cache_file.exists():
-        data = json.loads(cache_file.read_text(encoding="utf-8"))
-        _MEMORY_CACHE[key] = data
-        return data
+    tmp_cache = Path("/tmp/uk_wind_desk_cache") / key
+    for candidate in (cache_file, tmp_cache):
+        if candidate.exists():
+            data = json.loads(candidate.read_text(encoding="utf-8"))
+            _MEMORY_CACHE[key] = data
+            return data
 
     data = _fetch_json(url, params)
-    cache_file.write_text(json.dumps(data), encoding="utf-8")
+    for target in (cache_file, tmp_cache):
+        try:
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_text(json.dumps(data), encoding="utf-8")
+            break
+        except OSError:
+            continue
+
     _MEMORY_CACHE[key] = data
     return data
 

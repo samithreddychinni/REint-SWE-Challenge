@@ -1,0 +1,10 @@
+.git
+.vercel
+frontend/node_modules
+frontend/dist
+__pycache__
+*.pyc
+.pytest_cache
+*.mp4
+*.docx
+.part2_preview.png

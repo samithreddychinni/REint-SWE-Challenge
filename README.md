@@ -2,6 +2,11 @@
 
 This application helps a UK electricity utility trading desk evaluate national wind generation forecasts for January 2026 day-ahead purchase decisions. It compares actual generation from Elexon `FUELHH` against wind forecasts from Elexon `WINDFOR` and quantifies the supply shortfall buffer needed from non-renewable generation.
 
+
+## Live deployment
+
+The application is deployed on Vercel at: [https://gridbricks-khaki.vercel.app](https://gridbricks-khaki.vercel.app)
+
 ## Data boundaries and alignment rules
 
 The Elexon BMRS endpoints have three structural characteristics that determine how the backend aligns the series.
